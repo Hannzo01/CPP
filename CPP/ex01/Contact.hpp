@@ -9,6 +9,7 @@ class Contact
 	std::string nickname;
 	std::string phone_number;
 	std::string darkest_secret;
+
 	public:
 	void	set_field(std::string first, std::string last, std::string nickname, std::string num, std::string secret);
 	std::string get_first_name() const;

@@ -1,26 +1,25 @@
 #include <iostream>
-#include <ctype.h>
+#include <string>
+#include <cstdio>
 
-
-#define LOG(x) std::cout << x ;
 int main(int argc, char *argv[])
 {
 	if (argc != 1)
 	{
-		int j = 1;
-		int i = 0;
-		while (j < argc)
+		int i = 1;
+		while (i < argc)
 		{
-			i = 0;
-			while (argv[j][i] != '\0')
+			std::string str = argv[i];
+			size_t j = 0;
+			while (j < str.length())
 			{
-				LOG((char)toupper(argv[j][i]));
-				i++;
+				std::cout << (char)toupper(str[j]);
+				j++;
 			}
-			j++;
+			i++;
 		}
 		std::cout << std::endl;
 	}
 	else
-		LOG("* LOUD AND UNBEARABLE FEEDBACK NOISE *");
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }

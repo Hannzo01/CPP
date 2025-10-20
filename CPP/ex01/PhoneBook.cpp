@@ -39,6 +39,7 @@ void	PhoneBook::display()
 	}
 	
 }
+
 void	PhoneBook::prompt(std::string index_string)
 {
 	int index = atoi(index_string.c_str()); //Converts the C++ string into a C-style string (a pointer to characters atoi() is an old C function, so it needs this format
