@@ -39,3 +39,6 @@ Règle générale :
 ✅ Private : Toutes les données (attributs)
 ✅ Public : Les méthodes (fonctions) qui permettent d'accéder/modifier
 
+Le destructeur est automatiquement appelé quand ton objet est détruit (sort du scope, delete, etc.).
+Le compilateur ne sait pas quel argument lui passer s’il avait un paramètre.
+Donc, il doit toujours être vide et sans valeur de retour.
