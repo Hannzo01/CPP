@@ -14,3 +14,5 @@ class PhoneBook
 	void	display();
 	void	prompt(std::string index_string);
 };
+
+int	is_digit(std::string str);

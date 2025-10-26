@@ -29,25 +29,13 @@ void Harl::error( void )
 
 void Harl::complain(std::string level)
 {
-	// //pointeur sur var
-	// int Harl::*p = &Harl::var;
-	// this->*p = 42;
-	// std::cout << "the value of var now is " << this->*p << std::endl;
-
-
-	// void (Harl::*p_ft)() = &Harl::debug; //declaration 
-	// (this->*p_ft)(); // pointeur vers debug 
-
-
-	// now we will create arr of pointeurs
-
 	void (Harl::*pointer[])() = {
 		&Harl::debug,
 		&Harl::error,
 		&Harl::info,
 		&Harl::warning
 	};
-
+	
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
 
 	for (int i = 0; i < 4 ; i++)

@@ -1,5 +1,6 @@
 #include "PhoneBook.hpp"
 #include <cstdlib>
+#include <cctype>
 
 PhoneBook::PhoneBook()
 {
@@ -22,17 +23,18 @@ void PhoneBook::add_contact(Contact created_contact)
 
 void	PhoneBook::display()
 {
-	std::cout << std::setw(10) << "index" << " | " << std::setw(10) << "first name" << " | ";
-	std::cout << std::setw(10) << "last name" << " | " <<std::setw(10) << "nickname" << std::endl; 
+	std::cout <<std::setw(10) << std::right << "index" << "|" << std::setw(10)<< std::right << "first name" << "|";
+	std::cout << std::setw(10) << std::right<< "last name" << "|" <<std::setw(10)<< std::right << "nickname" <<  std::endl; 
+
 	for (int i = 0; i < 8; i++)
 	{
 		std::string tmp = contacts[i].get_first_name();
 		if (!tmp.empty())
 		{
-			std::cout << std::setw(10) << i << " | ";
-			std::cout << std::setw(10) << trunc(contacts[i].get_first_name()) << " | ";
-			std::cout << std::setw(10) << trunc(contacts[i].get_last_name()) << " | ";
-			std::cout << std::setw(10) << trunc(contacts[i].get_nickname()) << std::endl;
+			std::cout << std::setw(10) << std::right << i << "|";
+			std::cout << std::setw(10)<< std::right << trunc(contacts[i].get_first_name()) << "|";
+			std::cout << std::setw(10) << std::right<< trunc(contacts[i].get_last_name()) << "|";
+			std::cout << std::setw(10)<< std::right << trunc(contacts[i].get_nickname())  << std::endl;
 		}
 		else
 			break;
@@ -42,6 +44,11 @@ void	PhoneBook::display()
 
 void	PhoneBook::prompt(std::string index_string)
 {
+	if (is_digit(index_string) == 0)
+	{
+		std::cout << "invalid index\n";  
+		return ;
+	}
 	int index = atoi(index_string.c_str()); //Converts the C++ string into a C-style string (a pointer to characters atoi() is an old C function, so it needs this format
 	if (!(index >= 0 && index <= 7))
 		std::cout << "Invalid index\n";

@@ -14,6 +14,7 @@ enum levels
 
 int main(int argc , char *argv[])
 {
+	Harl c;
 	if (argc == 2)
 	{
 		levels lvl;
@@ -26,23 +27,29 @@ int main(int argc , char *argv[])
 			lvl = ERROR;
 		else if (cmd == "INFO")
 			lvl = INFO;
-		else
-		{
-			std::cout << "Enter a valid level\n";
-			return 1;
-		}
+
 		switch (lvl)
 		{
-			case DEBUG: std::cout << "DEBUG\n";
+			case DEBUG: 
+				c.complain("DEBUG");
+				c.complain("INFO");
+				c.complain("WARNING");
+				c.complain("ERROR");
 				break;
-			case INFO: std::cout << "INFO\n";
+			case INFO: 
+				c.complain("INFO");
+				c.complain("WARNING");
+				c.complain("ERROR");
 				break;
-			case WARNING: std::cout << "WARNING\n";
+			case WARNING: 
+				c.complain("WARNING");
+				c.complain("ERROR");
 				break;
-			case ERROR: std::cout << "ERROR\n";
+			case ERROR:  
+				c.complain("ERROR");
 				break;
 		
-		default:
+		default: std::cout << "[Probably complaining about insignificant problems ]\n";
 			break;
 		}
 	
