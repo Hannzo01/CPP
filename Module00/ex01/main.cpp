@@ -47,8 +47,10 @@ int main()
 			std::cout << "Enter darkest secret: -";
 			std::getline(std::cin, secret);
 
-			if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty() || !is_digit(num))
-				std::cout << "Invalid input try again" << std::endl ;
+			if (is_digit(num))
+				std::cout << "your number should be 10 digits long" << std::endl;
+			else if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty())
+				std::cout << "at least one of the fields is empty" << std::endl ;
 			else
 			{
 				contact.set_field(first, last, nickname, num, secret);
