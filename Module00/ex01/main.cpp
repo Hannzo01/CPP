@@ -48,7 +48,7 @@ int main()
 			std::getline(std::cin, secret);
 
 			if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty() || !is_digit(num))
-				std::cout << "Invalid" << std::endl ;
+				std::cout << "Invalid input try again" << std::endl ;
 			else
 			{
 				contact.set_field(first, last, nickname, num, secret);

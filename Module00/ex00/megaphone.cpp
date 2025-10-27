@@ -1,22 +1,15 @@
 #include <iostream>
-#include <string>
-#include <cstdio>
+#include <cctype>
 
 int main(int argc, char *argv[])
 {
 	if (argc != 1)
 	{
-		int i = 1;
-		while (i < argc)
+		for (int i = 1; i < argc; i++)
 		{
 			std::string str = argv[i];
-			size_t j = 0;
-			while (j < str.length())
-			{
-				std::cout << (char)toupper(str[j]);
-				j++;
-			}
-			i++;
+			for (std::size_t j = 0; j < str.length(); j++)
+				std::cout << static_cast<char>(std::toupper(str[j]));
 		}
 		std::cout << std::endl;
 	}

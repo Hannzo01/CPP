@@ -1,10 +1,10 @@
 #include "Contact.hpp"
 
-void	Contact::set_field(std::string first, std::string last, std::string nickname, std::string num, std::string secret)
+void	Contact::set_field(std::string first, std::string last, std::string nicknam, std::string num, std::string secret)
 {
 	first_name = first;
 	last_name = last;
-	this->nickname = nickname;
+	nickname = nicknam;
 	phone_number = num;
 	darkest_secret = secret;
 }

@@ -11,7 +11,7 @@ class Contact
 	std::string darkest_secret;
 
 	public:
-	void	set_field(std::string first, std::string last, std::string nickname, std::string num, std::string secret);
+	void	set_field(std::string first, std::string last, std::string nicknam, std::string num, std::string secret);
 	std::string get_first_name() const;
 	std::string get_last_name() const;
 	std::string get_nickname() const;
