@@ -73,7 +73,7 @@ Account::Account(int initial_deposit)
 void	Account::displayStatus( void ) const
 {
 	_displayTimestamp();
-	std::cout	<< " index:" << _accountIndex << ";" //or ';' idk
+	std::cout	<< " index:" << _accountIndex << ";"
 				<<	"amount:" << _amount << ";"
 				<< "deposits:" << _nbDeposits << ";"
 				<< "withdrawals:" << _nbWithdrawals << std::endl;

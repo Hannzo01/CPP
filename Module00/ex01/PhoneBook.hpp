@@ -1,7 +1,9 @@
-#pragma once 
+#ifndef PHONENOOK_HPP
+#define  PHONEBOOK_HPP
 #include "Contact.hpp"
 #include <iomanip>
 #include <iostream>
+#include <sstream>
 class PhoneBook
 {
 	int index_contact;
@@ -15,4 +17,4 @@ class PhoneBook
 	void	prompt(std::string index_string);
 };
 
-int	is_digit(std::string str);
+#endif 

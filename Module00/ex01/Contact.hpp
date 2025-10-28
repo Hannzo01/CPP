@@ -1,4 +1,5 @@
-
+#ifndef CONTACT_HPP
+#define CONTACT_HPP
 #include <string>
 
 class Contact
@@ -17,3 +18,4 @@ class Contact
 	std::string get_num() const;
 	std::string get_secret() const;
 };
+#endif

@@ -4,7 +4,7 @@
 #include "Contact.hpp"
 #include "PhoneBook.hpp"
 
-int	is_digit(std::string str)
+int	isValidPhoneNumber(std::string str)
 {
 	size_t i = 0;
 	if (str.empty())
@@ -13,7 +13,7 @@ int	is_digit(std::string str)
 		return 0;
 	while (i < str.length())
 	{
-		if (!isdigit(str[i]))
+		if (!(str[i] >= '0' && str[i] <= '9'))
 			return 0;
 		i++;
 	}
@@ -47,10 +47,10 @@ int main()
 			std::cout << "Enter darkest secret: -";
 			std::getline(std::cin, secret);
 
-			if (is_digit(num))
-				std::cout << "your number should be 10 digits long" << std::endl;
-			else if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty())
+			if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty())
 				std::cout << "at least one of the fields is empty" << std::endl ;
+			else if (!isValidPhoneNumber(num)) 
+				std::cout << "your number should be 10 digits long" << std::endl;
 			else
 			{
 				contact.set_field(first, last, nickname, num, secret);

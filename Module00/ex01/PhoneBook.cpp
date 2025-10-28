@@ -1,6 +1,4 @@
 #include "PhoneBook.hpp"
-#include <cstdlib>
-#include <cctype>
 
 PhoneBook::PhoneBook()
 {
@@ -42,24 +40,26 @@ void	PhoneBook::display()
 	
 }
 
-void	PhoneBook::prompt(std::string index_string)
+void    PhoneBook::prompt(std::string index_string)
 {
-	if (is_digit(index_string) == 0)
-	{
-		std::cout << "invalid index\n";  
-		return ;
-	}
-	int index = atoi(index_string.c_str()); //Converts the C++ string into a C-style string (a pointer to characters atoi() is an old C function, so it needs this format
-	if (!(index >= 0 && index <= 7))
-		std::cout << "Invalid index\n";
-	else if (contacts[index].get_first_name().empty())
-		std::cout << "No contact at this index\n";
-	else
-	{
-		std::cout << contacts[index].get_first_name() << std::endl;
-		std::cout << contacts[index].get_last_name() << std::endl;
-		std::cout << contacts[index].get_nickname() << std::endl;
-		std::cout << contacts[index].get_num() << std::endl;
-		std::cout << contacts[index].get_secret() << std::endl;
-	}
+    if (index_string.length() != 1 || !(index_string[0] >= '0' && index_string[0] <= '9'))
+    {
+        std::cout << "invalid index\n";  
+        return ;
+    }
+    int index;
+    std::stringstream ss(index_string);
+    ss >> index;
+    if (!(index >= 0 && index <= 7))
+        std::cout << "Invalid index\n";
+    else if (contacts[index].get_first_name().empty())
+        std::cout << "No contact at this index\n";
+    else
+    {
+        std::cout << contacts[index].get_first_name() << std::endl;
+        std::cout << contacts[index].get_last_name() << std::endl;
+        std::cout << contacts[index].get_nickname() << std::endl;
+        std::cout << contacts[index].get_num() << std::endl;
+        std::cout << contacts[index].get_secret() << std::endl;
+    }
 }

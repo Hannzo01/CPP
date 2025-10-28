@@ -9,7 +9,6 @@ all : $(NAME)
 $(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
-
 clean :
 	rm -f $(OBJ)
 
