@@ -31,9 +31,9 @@ void Harl::complain(std::string level)
 {
 	void (Harl::*pointer[])() = {
 		&Harl::debug,
-		&Harl::error,
 		&Harl::info,
-		&Harl::warning
+		&Harl::warning,
+		&Harl::error
 	};
 	
 	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};

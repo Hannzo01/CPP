@@ -1,48 +1,27 @@
 #include <iostream>
-#include <fstream>
-#include <string>
+#include "Sed.hpp"
 
 int main(int argc, char *argv[])
 {
+	
 	if (argc == 4)
 	{
 		std::string filename = argv[1];
 		std::string s1 = argv[2];
-		if (s1.empty())
-			return 1;
 		std::string s2 = argv[3];
-		std::ifstream file(filename.c_str());
-		if (file.is_open() == false)
+
+		if (s1.empty())
 		{
-			std::cerr << "Error : couldn't not open file\n"; 
+			std::cerr << "Error: The string to be replaced (s1) cannot be empty." << std::endl;
 			return 1;
 		}
-		std::string line;
-		std::string temp_line;
-		std::string output_filename = filename + ", replace";
-		std::ofstream file1(output_filename);
-		if (file1.is_open() == false)
-		{
-			std::cerr << "Error : couldn't not open file"; 
-			return 1;
-		}
-		while (std::getline(file, line))
-		{
-			size_t found_pos;
-			size_t start_pos = 0;
-			while ((found_pos = line.find(s1, start_pos)) != std::string::npos)
-			{
-				temp_line = temp_line + line.substr(start_pos, found_pos - start_pos); // if start_pos is 0then i can do start_pos, found_pos
-				temp_line = temp_line + s2;
-				// move the start point 
-				start_pos = found_pos + s1.length();						
-			}
-			temp_line = temp_line + line.substr(start_pos);
-			file1 << temp_line << std::endl;
-			temp_line = "";
-		}
-		return 0;
+
+		Sed replacer(s1, s2, filename);
+		return replacer.execute_replacement();
 	}
-	std::cerr << "Invalid args " << std::endl;
-	return 1;
+	else
+	{
+		std::cerr << "Error ! Invalid input " << std::endl;
+		return (1);
+	}
 }

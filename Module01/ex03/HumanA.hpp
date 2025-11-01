@@ -4,10 +4,10 @@
 class HumanA
 {
 	std::string name;
-	Weapon w1;
+	Weapon &w1;
 	public :
 	void attack();
-	HumanA(std::string name, Weapon knife);
+	HumanA(std::string name, Weapon& knife);
 };
 
 
