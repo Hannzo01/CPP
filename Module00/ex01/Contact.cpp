@@ -32,3 +32,4 @@ std::string Contact::get_secret() const
 {
 	return darkest_secret;
 }
+

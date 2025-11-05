@@ -1,15 +1,15 @@
-NAME = sed
+NAME = ClapTrap
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
-SRC = main.cpp Sed.cpp 
-OBJ = $(SRC:.cpp=.o) 
+SRC = ClapTrap.cpp main.cpp
+OBJ = $(SRC:.cpp=.o)
 
 all : $(NAME)
 
 %.o: %.cpp
 	$(CXX) $(CXXFLAGS) -c $< -o $@
 
-$(NAME): $(OBJ) 
+$(NAME): $(OBJ)
 	$(CXX) $(CXXFLAGS) $(OBJ) -o $(NAME)
 
 

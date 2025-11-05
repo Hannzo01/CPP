@@ -1,59 +1,48 @@
 #include "Harl.hpp"
 
-//we cant use switch with string
+const std::string LEVELS[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+const int NUM_LEVELS = 4;
 
-// enums are paired named integer
-
-enum levels
+int getLevelIndex(const std::string& cmd)
 {
-	DEBUG = 0,
-	INFO = 1,
-	WARNING = 2,
-	ERROR = 3
-};
+    for (int i = 0; i < NUM_LEVELS; ++i)
+    {
+        if (LEVELS[i] == cmd)
+            return i; // Retourne l'index entier (0, 1, 2, ou 3)
+    }
+    return -1; // Retourne -1 si la chaîne n'est pas trouvée
+}
 
 int main(int argc , char *argv[])
 {
 	Harl c;
-	if (argc == 2)
-	{
-		levels lvl;
-		std::string cmd = argv[1];
-		if (cmd == "DEBUG")
-			lvl = DEBUG;
-		else if (cmd == "WARNING")
-			lvl = WARNING;
-		else if (cmd == "ERROR")
-			lvl = ERROR;
-		else if (cmd == "INFO")
-			lvl = INFO;
-
-		switch (lvl)
-		{
-			case DEBUG: 
-				c.complain("DEBUG");
-				c.complain("INFO");
-				c.complain("WARNING");
-				c.complain("ERROR");
-				break;
-			case INFO: 
-				c.complain("INFO");
-				c.complain("WARNING");
-				c.complain("ERROR");
-				break;
-			case WARNING: 
-				c.complain("WARNING");
-				c.complain("ERROR");
-				break;
-			case ERROR:  
-				c.complain("ERROR");
-				break;
-		
-		default: std::cout << "[Probably complaining about insignificant problems ]\n";
-			break;
-		}
 	
+	if (argc != 2)
+	{
+		std::cout << "Usage: ./harlFilter <level>" << std::endl;
+        return 1;
 	}
-	else
-		std::cout << "Available levels : WARNING, DEBUG, ERROR, INFO\n"; 
+
+    std::string cmd = argv[1];
+    int lvl_index = getLevelIndex(cmd);
+
+	switch (lvl_index)
+	{
+		case 0:
+			c.debug();
+			// FALLTHROUGH
+		case 1:
+			c.info();
+			// FALLTHROUGH
+		case 2:
+			c.warning();
+			// FALLTHROUGH
+		case 3:
+			c.error();
+			break;
+		default: 
+			std::cout << "[Probably complaining about insignificant problems ]" << std::endl;
+			break;
+	}
+	return 0;
 }

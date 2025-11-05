@@ -27,23 +27,3 @@ void Harl::error( void )
 	std::cout << "This is unacceptable! I want to speak to the manager now.\n";
 }
 
-void Harl::complain(std::string level)
-{
-	void (Harl::*pointer[])() = {
-		&Harl::debug,
-		&Harl::error,
-		&Harl::info,
-		&Harl::warning
-	};
-
-	std::string levels[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-
-	for (int i = 0; i < 4 ; i++)
-	{
-		if (levels[i] == level)
-		{
-			(this->*pointer[i])();
-			return ;
-		}
-	}
-}

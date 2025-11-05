@@ -1,10 +1,11 @@
-#pragma once 
+#ifndef HARL
+#define HARL
+
 #include <iostream>
 
 
 class Harl
 {
-	int	var; //delete
 	void debug( void );
 	void info( void );
 	void warning( void );
@@ -13,4 +14,5 @@ class Harl
 	void complain(std::string level);
 };
 
+#endif
 

@@ -28,24 +28,30 @@ int main()
 	{
 		std::cout << "Enter Command: - ";
 		std::string cmd, first, last, nickname, num, secret;
-		std::getline(std::cin, cmd);
+		if (!std::getline(std::cin, cmd))
+		{
+			std::cout << std::endl;
+			break;
+		}
 		if (cmd == "ADD")
 		{
 			Contact contact;
 			std::cout << "Enter first name: -";
-			std::getline(std::cin, first);
+			if (!std::getline(std::cin, first))
+				break;
 
 			std::cout << "Enter last name: -";
-			std::getline(std::cin, last);
-		
+			if (!std::getline(std::cin, last))
+				break;
 			std::cout << "Enter nickname: -";
-			std::getline(std::cin, nickname);
-
+			if (!std::getline(std::cin, nickname)) 
+				break;
 			std::cout << "Enter phone number: -";
-			std::getline(std::cin, num);
-
+			if (!std::getline(std::cin, num)) 
+				break;
 			std::cout << "Enter darkest secret: -";
-			std::getline(std::cin, secret);
+			if (!std::getline(std::cin, secret))
+				break;
 
 			if (first.empty() || last.empty() || nickname.empty() || num.empty() || secret.empty())
 				std::cout << "at least one of the fields is empty" << std::endl ;
@@ -62,11 +68,16 @@ int main()
 			phonebook.display();
 			std::cout << "Enter the index: ";
 			std::string index;
-			std::getline(std::cin, index);
+			if (!std::getline(std::cin, index))
+			{
+				std::cout << std::endl;
+				break;
+			}
 			phonebook.prompt(index);
 		}
 		else if (cmd == "EXIT")
 			break ;
 	}
+	return 0; 
 }
 

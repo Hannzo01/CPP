@@ -4,9 +4,8 @@
 class Weapon
 {
 	std::string type;
-	//specificateurs dacess
 	public:
-	std::string&  geType() ;
+	std::string&  getType() ;
 	void setType(std::string new_value);
 	Weapon(std::string name);
 	Weapon();

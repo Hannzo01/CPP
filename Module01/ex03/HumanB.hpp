@@ -4,10 +4,9 @@
 class HumanB
 {
 	std::string name;
-	Weapon w1;
+	Weapon *w1;
 	public :
 	void attack();
-	void setWeapon(Weapon vandal);
+	void setWeapon(Weapon &vandal);
 	HumanB(std::string name_value);
 };
-

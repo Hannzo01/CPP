@@ -3,13 +3,10 @@
 
 class Zombie
 {
-	//specificateurs daccess
 	std::string name;
 	public :
-	void annouce(void);
-	//constructor
+	void announce(void);
 	Zombie(std::string name);
-	//destructor 
 	~Zombie();
 };
 
