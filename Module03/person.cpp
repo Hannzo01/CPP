@@ -69,7 +69,7 @@ class Student : public Person{
     void set_lvl (int l);
     Student (int l, std::string n, int a) : Person(a, n)
     {
-        l = lvl;
+    lvl = l;
     }
     Student()
     {
@@ -79,9 +79,9 @@ class Student : public Person{
     {
         std::cout << "Student destructor is called" << std::endl;
     }
-    void display() : Person display()
+    void display()
     {
-        
+        Person::display();
     }
 };
 
