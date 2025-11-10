@@ -1,4 +1,15 @@
-#include <iostream>
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 18:06:37 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/11/10 18:06:38 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Sed.hpp"
 
 int main(int argc, char *argv[])
@@ -17,7 +28,8 @@ int main(int argc, char *argv[])
 		}
 
 		Sed replacer(s1, s2, filename);
-		return replacer.execute_replacement();
+		replacer.execute_replacement();
+		return 0;
 	}
 	else
 	{

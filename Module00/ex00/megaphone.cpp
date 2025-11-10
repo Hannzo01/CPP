@@ -9,10 +9,10 @@ int main(int argc, char *argv[])
 		{
 			std::string str = argv[i];
 			for (std::size_t j = 0; j < str.length(); j++)
-				std::cout << static_cast<char>(std::toupper(str[j]));
+				std::cout << (char)(std::toupper(str[j]));
 		}
 		std::cout << std::endl;
 	}
 	else
-		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl; //method chaining 
+		std::cout << "* LOUD AND UNBEARABLE FEEDBACK NOISE *" << std::endl;
 }

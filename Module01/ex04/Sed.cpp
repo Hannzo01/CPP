@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Sed.cpp                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/10 18:06:43 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/11/10 18:06:44 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Sed.hpp"
 
 Sed::Sed(const std::string &s1, const std::string &s2, const std::string &filename)
@@ -9,7 +21,6 @@ Sed::Sed(const std::string &s1, const std::string &s2, const std::string &filena
 int Sed::execute_replacement() const
 {
 	std::string line;
-	std::string temp_line;
 	std::string output_filename = _filename + ".replace";
 	
 	std::ifstream inputfile(_filename.c_str());
@@ -27,17 +38,17 @@ int Sed::execute_replacement() const
 	}
 	while (std::getline(inputfile, line))
 	{
+		std::string res_line;
 		size_t found_pos;
 		size_t start_pos = 0;
 		while ((found_pos = line.find(_s1, start_pos)) != std::string::npos)
 		{
-			temp_line = temp_line + line.substr(start_pos, found_pos - start_pos); // if start_pos is 0then i can do start_pos, found_pos
-			temp_line = temp_line + _s2;
+			res_line = res_line + line.substr(start_pos, found_pos - start_pos); // if start_pos is 0then i can do start_pos, found_pos
+			res_line = res_line + _s2;
 			start_pos = found_pos + _s1.length();						
 		}
-		temp_line = temp_line + line.substr(start_pos);
-		outputfile << temp_line << std::endl;
-		temp_line = "";
+		res_line = res_line + line.substr(start_pos);
+		outputfile << res_line << std::endl;
 	}
 	inputfile.close();
     outputfile.close();
