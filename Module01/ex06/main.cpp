@@ -1,16 +1,27 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   main.cpp                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/12 15:40:34 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/11/12 15:40:40 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Harl.hpp"
 
-const std::string LEVELS[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
-const int NUM_LEVELS = 4;
 
 int getLevelIndex(const std::string& cmd)
 {
-    for (int i = 0; i < NUM_LEVELS; ++i)
+	const std::string LEVELS[] = {"DEBUG", "INFO", "WARNING", "ERROR"};
+    for (int i = 0; i < 4; ++i)
     {
         if (LEVELS[i] == cmd)
-            return i; // Retourne l'index entier (0, 1, 2, ou 3)
+            return i;
     }
-    return -1; // Retourne -1 si la chaîne n'est pas trouvée
+    return -1;
 }
 
 int main(int argc , char *argv[])
@@ -22,7 +33,6 @@ int main(int argc , char *argv[])
 		std::cout << "Usage: ./harlFilter <level>" << std::endl;
         return 1;
 	}
-
     std::string cmd = argv[1];
     int lvl_index = getLevelIndex(cmd);
 
