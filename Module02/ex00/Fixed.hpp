@@ -15,7 +15,6 @@
 
 #include <iostream>
 
-
 class Fixed
 {
         int _fixed_point;

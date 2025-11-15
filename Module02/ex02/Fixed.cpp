@@ -158,14 +158,16 @@ Fixed Fixed::operator-(const Fixed& other)
 Fixed Fixed::operator*(const Fixed& other)
 {
     Fixed obj;
-    obj._fixed_point  =_fixed_point * other._fixed_point;
-    return obj;}
+    obj._fixed_point  = roundf((_fixed_point * other._fixed_point) / 256);
+    return obj;
+}
 
 Fixed Fixed::operator/(const Fixed& other)
 {
     Fixed obj;
-    obj._fixed_point  =_fixed_point / other._fixed_point;
-    return obj;}
+    obj._fixed_point  = roundf((_fixed_point / other._fixed_point) * 256);
+    return obj;
+}
 
 int Fixed::toInt( void ) const
 {

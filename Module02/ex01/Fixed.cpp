@@ -72,7 +72,7 @@ int Fixed::toInt( void ) const
 
 float Fixed::toFloat( void ) const
 {
-    return (static_cast<float>(_fixed_point) / static_cast<float>(256));
+    return (float(_fixed_point) / float(256));
 }
 
 std::ostream& operator<<(std::ostream& os, const Fixed& a)
