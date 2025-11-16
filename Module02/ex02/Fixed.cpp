@@ -4,7 +4,6 @@ const int Fixed::_fract_bits = 8;
 
 
 Fixed::Fixed() : _fixed_point(0){
-    // std::cout << "Default constructor called" << std::endl;
 }
 
 Fixed::Fixed(int fixed_point)
@@ -19,14 +18,11 @@ Fixed::Fixed(float fixed_point)
     
 Fixed::Fixed(const Fixed& other)
 {
-    // std::cout << "Copy constructor called" << std::endl;
     _fixed_point = other.getRawBits();
-    // *this = other;
 }
 
 Fixed& Fixed::operator=(const Fixed& other)
 {
-    // std::cout << "Copy assignment operator called" << std::endl;
     _fixed_point = other.getRawBits();
     return *this;
 }
@@ -38,7 +34,6 @@ void Fixed::setRawBits( int const raw )
 
 int Fixed::getRawBits( void ) const
 {
-    // std::cout << "getRawBits member function called" << std::endl;
     return _fixed_point;
 }
 
@@ -111,9 +106,6 @@ bool    Fixed::operator !=(const Fixed& other) const
     return false;
 }
 
-// Fixed::Fixed(int fixed_point) : _fixed_point(fixed_point){}
-
-
 Fixed Fixed::operator+(const Fixed& other)
 {
     Fixed obj;
@@ -173,7 +165,6 @@ int Fixed::toInt( void ) const
 {
     int x;
     x = _fixed_point / 256;
-    // x = _fixed_point >> _fract_bits;
     return x;
 
 }
@@ -184,10 +175,7 @@ float Fixed::toFloat( void ) const
     return (f);
 }
 
-Fixed::~Fixed()
-{
-    // std::cout << "Destructor called" << std::endl;
-}
+Fixed::~Fixed(){}
 
 std::ostream& operator<<(std::ostream& os, const Fixed& a)
 {
