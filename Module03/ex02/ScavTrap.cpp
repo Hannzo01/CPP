@@ -2,8 +2,7 @@
 
 ScavTrap::ScavTrap() : ClapTrap()
 {
-	std::cout << "Default constructor is called " << std::endl;
-	// _name = "Unkown"; blch hit parent initialisaha
+	std::cout << "ScavTrap Default constructor is called " << std::endl;
 	_Hit_points = 100;
     _Energy_points = 50;
     _Attack_damage = 20;
@@ -11,7 +10,7 @@ ScavTrap::ScavTrap() : ClapTrap()
 
 ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 {//pas beosin dinitialiser name psk le pere a fait
-	std::cout << "Constructor is called " << std::endl;
+	std::cout << "ScavTrap Constructor is called " << std::endl;
 	_Hit_points = 100;
 	_Energy_points = 50;
 	_Attack_damage = 20;
@@ -19,24 +18,21 @@ ScavTrap::ScavTrap(std::string name) : ClapTrap(name)
 
 ScavTrap::ScavTrap(const ScavTrap& other) : ClapTrap(other)
 {
-	std::cout << "Copy constructor is called" << std::endl;
+	std::cout << "ScavTrap Copy constructor is called" << std::endl;
 	// C'est tout ! Le parent a tout fait. 
 }
 
 ScavTrap& ScavTrap::operator=(const ScavTrap& other)
 {
-	std::cout << "Copy assignmenet operator is called" << std::endl;
-	if (this == &other)
-		return *this;
+	std::cout << "ScavTrap Copy assignmenet operator is called" << std::endl;
 	ClapTrap::operator=(other); // le parent va tous initlialiser
 	return *this;
 }
 
 ScavTrap::~ScavTrap() 
 {
-	std::cout << "Destructor is called" << std::endl;
+	std::cout << "ScavTrap Destructor is called" << std::endl;
 }
-
 
 void ScavTrap::attack(const std::string& target)
 {
@@ -46,9 +42,7 @@ void ScavTrap::attack(const std::string& target)
 		_Energy_points = _Energy_points - 1;
 	}
 	else
-	{	
-		std::cout << "SvapTrap Can’t do anything; no hit points or energy points are left" << std::endl;
-	}
+		std::cout << "ScavTrap Can’t do anything; no hit points or energy points are left" << std::endl;
 }
 
 void ScavTrap::guardGate()
