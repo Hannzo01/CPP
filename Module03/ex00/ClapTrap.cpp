@@ -8,15 +8,14 @@ void ClapTrap::beRepaired(unsigned int amount)
 		std::cout << "ClapTrap " << _name << " can't repair itself" << std::endl;
 		return ;
 	}
-	health = amount + (unsigned int)_Hit_points; // to avoid overflow if i cast amount to int and someone past a very large value
-	if (health > 10)
-		_Hit_points = 10;
+	health = amount + (unsigned int)_Hit_points;
+	if (health > 100)
+		_Hit_points = 100;
 	else
 		_Hit_points = health;
 	_Energy_points = _Energy_points - 1;
 	std::cout << "ClapTrap " << _name << " is healed and now he has " << _Hit_points << " HP"<< std::endl;
 }
-
 
 void ClapTrap::takeDamage(unsigned int amount)
 { 

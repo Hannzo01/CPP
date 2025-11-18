@@ -6,7 +6,6 @@
 
 class ClapTrap
 {
-	//si ils restent prve la class enfant ne peux pas y acceder et on on ne peut pas changer
 	protected : 
 		std::string _name;
 		int _Hit_points;

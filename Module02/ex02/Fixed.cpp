@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.cpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/16 09:21:33 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/11/16 10:42:34 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "Fixed.hpp"
 
 const int Fixed::_fract_bits = 8;
@@ -150,14 +162,14 @@ Fixed Fixed::operator-(const Fixed& other)
 Fixed Fixed::operator*(const Fixed& other)
 {
     Fixed obj;
-    obj._fixed_point  = roundf((_fixed_point * other._fixed_point) / 256);
+    obj._fixed_point = roundf(this->toFloat() * other.toFloat() * (1 << _fract_bits));
     return obj;
 }
 
 Fixed Fixed::operator/(const Fixed& other)
 {
     Fixed obj;
-    obj._fixed_point  = roundf((_fixed_point / other._fixed_point) * 256);
+    obj._fixed_point = roundf(this->toFloat() / other.toFloat() * (1 << _fract_bits));
     return obj;
 }
 

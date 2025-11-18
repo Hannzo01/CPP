@@ -55,7 +55,7 @@ ClapTrap::ClapTrap() : _name("Unknown"), _Hit_points(10), _Energy_points(10), _A
 
 ClapTrap::ClapTrap(std::string name) : _name(name), _Hit_points(10), _Energy_points(10), _Attack_damage(0)
 {
-	std::cout << "Claptrap Parameterized Constructor is called " << std::endl;
+	std::cout << "Claptrap Constructor is called " << std::endl;
 }
 
 ClapTrap::ClapTrap(const ClapTrap& other) : _name(other._name), _Hit_points(other._Hit_points), _Energy_points(other._Energy_points), _Attack_damage(other._Attack_damage)

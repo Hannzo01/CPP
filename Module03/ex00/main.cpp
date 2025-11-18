@@ -1,14 +1,20 @@
 #include "ClapTrap.hpp"
 
-
 int main()
 {
-	ClapTrap attacker("yoru");
+    std::cout << "--- ClapTrap Construction ---" << std::endl;
+    ClapTrap attacker("yoru");
+    std::cout << std::endl;
 
-	attacker.attack("yasuo");
-	attacker.takeDamage(9);
-	attacker.beRepaired(2);
+    std::cout << "--- Actions ---" << std::endl;
+    attacker.attack("yasuo");
+    attacker.takeDamage(9);
+    attacker.beRepaired(2);
+    
+    attacker.takeDamage(1);
+    attacker.beRepaired(10);
+    std::cout << std::endl;
 
-	attacker.takeDamage(1);
-	attacker.beRepaired(10);
+    std::cout << "--- (Destructions) ---" << std::endl;
+    return 0;
 }

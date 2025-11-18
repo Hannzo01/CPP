@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   Fixed.hpp                                          :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: kemzouri <kemzouri@student.42.fr>          +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2025/11/16 09:21:36 by kemzouri          #+#    #+#             */
+/*   Updated: 2025/11/16 09:21:37 by kemzouri         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #ifndef FIXED_HPP
 #define FIXED_HPP
 
@@ -45,7 +57,6 @@ class Fixed
 
     static const Fixed& min(const Fixed &a, const Fixed&b);
     static Fixed& min(Fixed &a, Fixed&b);
-
     static const Fixed& max(const Fixed &a, const Fixed&b);
     static Fixed& max(Fixed &a, Fixed&b);
 };
