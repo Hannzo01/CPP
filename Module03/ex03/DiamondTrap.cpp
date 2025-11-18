@@ -8,7 +8,7 @@ void DiamondTrap::whoAmI()
     std::cout << "ClapTrap name is: " << ClapTrap::_name << std::endl;
 }
 
-DiamondTrap::DiamondTrap() : ClapTrap("Default_cla_name"), FragTrap("Default"), ScavTrap("Default")
+DiamondTrap::DiamondTrap() : ClapTrap("Default_clap_name"), FragTrap("Default"), ScavTrap("Default")
 {
     std::cout << "DiamondTrap default constructor called" << std::endl;
     _name = "Default";
