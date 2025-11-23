@@ -8,9 +8,9 @@ class ClapTrap
 {
 	protected :
 		std::string _name;
-		int _Hit_points;
-		int _Energy_points;
-		int _Attack_damage;
+		int _hit_points;
+		int _energy_points;
+		int _attack_damage;
 	//Ce constructeur n'est pas pour le public, 
 	//c'est un outil interne que mes enfants peuvent utiliser pour se construire correctement
 	public :
