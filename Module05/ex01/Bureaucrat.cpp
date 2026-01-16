@@ -40,7 +40,7 @@ void	Bureaucrat::DecrementGrade()
 	grade++;
 }
 
-Bureaucrat::Bureaucrat(int gradevalue, const std::string name) : _name(name)
+Bureaucrat::Bureaucrat(const std::string name, int gradevalue) : _name(name)
 {
 	if (gradevalue > 150)
 		throw GradeTooLowException();
@@ -48,6 +48,14 @@ Bureaucrat::Bureaucrat(int gradevalue, const std::string name) : _name(name)
 		throw GradeTooHighException();
 	grade = gradevalue;
 
+}
+
+const char* Bureaucrat::GradeTooLowException::what() const throw() {
+    return "Grade is too low!";
+}
+
+const char* Bureaucrat::GradeTooHighException::what() const throw() {
+    return "Grade is too High!";
 }
 
 void	Bureaucrat::signForm(Form& f)
