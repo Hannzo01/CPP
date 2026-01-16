@@ -4,7 +4,6 @@
 Bureaucrat::Bureaucrat() : _name("Default"), grade(150)
 {}
 
-// mknbdloch smiya kenza rtb0a kenza wlk rtwli grade 1 dyal said
 Bureaucrat& Bureaucrat::operator=(const Bureaucrat& other)
 {
 	if (this != &other)
@@ -26,21 +25,21 @@ std::string		Bureaucrat::getName() const
 	return _name;
 }
 
-void	Bureaucrat::IncrementGrade()
+void	Bureaucrat::incrementGrade()
 {
-	if (grade - 1 < 1) // ncheck b3da ila kan rykon 0 nthrowi error mmchi tnkhlih wla 0 had ntrhowi error o ryb9a 3aych lia b 0 grade
+	if (grade - 1 < 1)
 		throw GradeTooHighException();
 	grade--;
 }
 	
-void	Bureaucrat::DecrementGrade()
+void	Bureaucrat::decrementGrade()
 {
 	if (grade + 1 > 150)
 		throw GradeTooLowException();
 	grade++;
 }
 
-Bureaucrat::Bureaucrat(int gradevalue, const std::string name) : _name(name)
+Bureaucrat::Bureaucrat(const std::string name, int gradevalue) : _name(name)
 {
 	if (gradevalue > 150)
 		throw GradeTooLowException();

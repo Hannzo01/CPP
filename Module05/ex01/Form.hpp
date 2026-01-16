@@ -2,8 +2,8 @@
 #define FORM_HPP
 
 #include <iostream>
-class Bureaucrat; // Je te promets que cette classe existe
 #include <string>
+class Bureaucrat;
 
 class Form
 {
@@ -27,18 +27,12 @@ class Form
 		class GradeTooLowException : public std::exception
 		{
 			public :
-				virtual const char* what() const throw(){
-					return "GradeTooLow";
-				}
-
+				virtual const char* what() const throw();
 		};
 		class GradeTooHighException : public std::exception
 		{
 			public :
-				virtual const char* what() const throw(){
-					return "GradeTooHigh";
-		}
-
+				virtual const char* what() const throw();
 		};
 		void        beSigned(const Bureaucrat& b);
 };

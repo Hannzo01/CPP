@@ -64,16 +64,26 @@ std::string Form::getName() const
 	return _name;
 }
 
+const char* Form::GradeTooHighException::what() const throw()
+{
+	return "GradeTooHigh";
+}
+
+const char* Form::GradeTooLowException::what() const throw()
+{
+	return "GradeTooLow";
+}
+
 std::ostream& operator<<(std::ostream& os, const Form& f)
 {
 	if (f.getIsSigned() == true)
 	{
-		os << "The form named " << f.getName() << " is signed." << "Grade " << f.getSignGrade()
+		os << "The form named " << f.getName() << " is signed." << " Grade " << f.getSignGrade()
 		<< " is needed to be signed and grade " << f.getExecuteGrade() << " is need to be executed" << std::endl;
 	}
 	else
 	{
-		os << "The form named " << f.getName() << " isn't signed." << "Grade " << f.getSignGrade()
+		os << "The form named " << f.getName() << " isn't signed." << " Grade " << f.getSignGrade()
 	<< " is needed to be signed and grade " << f.getExecuteGrade() << " is need to be executed" << std::endl;
 	}
 	return os;

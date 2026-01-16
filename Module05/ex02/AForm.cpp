@@ -62,6 +62,11 @@ std::string AForm::getName() const
 	return _name;
 }
 
+const char* AForm::FormNotSigned::what() const throw()
+{
+	return "FormNotSigned";
+}
+
 std::ostream& operator<<(std::ostream& os, const AForm& f)
 {
 	if (f.getIsSigned() == true)

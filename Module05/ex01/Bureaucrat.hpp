@@ -15,11 +15,11 @@ class Bureaucrat
 		int	getGrade() const;
 		std::string getName() const;
 
-		void	IncrementGrade();
-		void	DecrementGrade();
+		void	incrementGrade();
+		void	decrementGrade();
 
 		Bureaucrat();
-		Bureaucrat(const std::string name,int gradevalue);
+		Bureaucrat(const std::string name, int gradevalue);
 		Bureaucrat& operator=(const Bureaucrat& other);
 		Bureaucrat(const Bureaucrat& other);
 		~Bureaucrat();
@@ -33,7 +33,6 @@ class Bureaucrat
 			public :
 				virtual const char* what() const throw();
 		};
-
 		void	signForm(Form& f);
 };
 
