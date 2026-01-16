@@ -33,7 +33,7 @@ class Bureaucrat
 			public :
 				virtual const char* what() const throw();
 		};
-		void	signForm(Form& f);
+		void	signForm(AForm& f);
 		void	executeForm(AForm const & form);
 };
 

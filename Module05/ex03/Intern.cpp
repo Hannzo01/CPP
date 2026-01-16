@@ -36,7 +36,7 @@ const char* Intern::FormDoesntExist::what() const throw()
 // Pointeur vers une fonction de Intern prenant une string et renvoyant un AForm*"
 AForm* Intern::makeForm(std::string form_name, std::string form_target)
 {
-    std::string form_names[] = {"robotomy request", "shrubberycreation", "presidentialpardon"};
+    std::string form_names[] = {"robotomy request", "shrubbery creation", "presidential pardon"};
 
     AForm* (Intern::*ptrft[])(std::string) = {&Intern::makeRobotomy, 
                                             &Intern::makeShrubbery,

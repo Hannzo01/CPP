@@ -7,10 +7,11 @@
 
 int main()
 {
+    std::srand(std::time(NULL));
     // TEST 1 : ShrubberyCreationForm (sign: 145, exec: 137)
     std::cout << "=== TEST 1: ShrubberyCreationForm ===" << std::endl;
     try {
-        Bureaucrat lowGrade(140, "LowGrade");
+        Bureaucrat lowGrade("LowGrade", 140);
         ShrubberyCreationForm shrubbery("home");
         
         std::cout << lowGrade;
@@ -26,7 +27,7 @@ int main()
     // TEST 2 : RobotomyRequestForm (sign: 72, exec: 45)
     std::cout << "\n=== TEST 2: RobotomyRequestForm ===" << std::endl;
     try {
-        Bureaucrat midGrade(40, "MidGrade");
+        Bureaucrat midGrade("MidGrade", 40);
         RobotomyRequestForm robotomy("Bender");
         
         std::cout << midGrade;
@@ -43,7 +44,7 @@ int main()
     // TEST 3 : PresidentialPardonForm (sign: 25, exec: 5)
     std::cout << "\n=== TEST 3: PresidentialPardonForm ===" << std::endl;
     try {
-        Bureaucrat highGrade(1, "HighGrade");
+        Bureaucrat highGrade("HighGrade", 1);
         PresidentialPardonForm pardon("Arthur Dent");
         
         std::cout << highGrade;
@@ -59,7 +60,7 @@ int main()
     // TEST 4 : Execute without signing
     std::cout << "\n=== TEST 4: Execute without signing ===" << std::endl;
     try {
-        Bureaucrat boss(1, "Boss");
+        Bureaucrat boss("Boss", 1);
         ShrubberyCreationForm unsigned_form("test");
         
         std::cout << boss;
@@ -72,8 +73,8 @@ int main()
     // TEST 5 : Grade too low to execute
     std::cout << "\n=== TEST 5: Grade too low to execute ===" << std::endl;
     try {
-        Bureaucrat lowBureaucrat(146, "LowBureaucrat");
-        Bureaucrat highBureaucrat(1, "HighBureaucrat");
+        Bureaucrat lowBureaucrat("LowBureaucrat", 146);
+        Bureaucrat highBureaucrat("HighBureaucrat", 1);
         ShrubberyCreationForm form("garden");
         
         highBureaucrat.signForm(form); // High grade signs it

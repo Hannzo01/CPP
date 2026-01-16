@@ -1,86 +1,67 @@
+#include "Intern.hpp"
 #include "Bureaucrat.hpp"
 #include "AForm.hpp"
-#include "ShrubberyCreationForm.hpp"
-#include "RobotomyRequestForm.hpp"
-#include "PresidentialPardonForm.hpp"
-#include <exception>
+#include <iostream>
 
 int main()
 {
-    // TEST 1 : ShrubberyCreationForm (sign: 145, exec: 137)
-    std::cout << "=== TEST 1: ShrubberyCreationForm ===" << std::endl;
-    try {
-        Bureaucrat lowGrade(140, "LowGrade");
-        ShrubberyCreationForm shrubbery("home");
+    Intern  someRandomIntern;
+    AForm* rrf;
+
+    // ---------------------------------------------------
+    // TEST 1: SUCCESS (Robotomy Request)
+    // ---------------------------------------------------
+    std::cout << "--- TEST 1: Intern creates a valid form ---" << std::endl;
+    try 
+    {
+        // "robotomy request" matches your array in Intern.cpp
+        rrf = someRandomIntern.makeForm("robotomy request", "Bender");
         
-        std::cout << lowGrade;
-        std::cout << shrubbery;
+        // Prove it exists by printing it
+        std::cout << "Success: Created " << rrf->getName() << std::endl;
         
-        lowGrade.signForm(shrubbery);
-        lowGrade.executeForm(shrubbery);
+        // CLEANUP: Intern creates it with 'new', YOU must delete it.
+        delete rrf; 
     }
-    catch (std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
+    catch (std::exception &e) 
+    {
+        std::cout << "Error: " << e.what() << std::endl;
     }
 
-    // TEST 2 : RobotomyRequestForm (sign: 72, exec: 45)
-    std::cout << "\n=== TEST 2: RobotomyRequestForm ===" << std::endl;
-    try {
-        Bureaucrat midGrade(40, "MidGrade");
-        RobotomyRequestForm robotomy("Bender");
-        
-        std::cout << midGrade;
-        std::cout << robotomy;
-        
-        midGrade.signForm(robotomy);
-        midGrade.executeForm(robotomy);
-        midGrade.executeForm(robotomy); // Test again to see 50% failure
+    // ---------------------------------------------------
+    // TEST 2: SUCCESS (Checking your specific naming)
+    // ---------------------------------------------------
+    // Note: In your code you wrote "shrubberycreation" (no space).
+    // Usually strict 42 correction requires "shrubbery creation".
+    // I am testing YOUR string here.
+    std::cout << "\n--- TEST 2: Intern creates another form ---" << std::endl;
+    try 
+    {
+        rrf = someRandomIntern.makeForm("shrubberycreation", "Garden");
+        std::cout << "Success: Created " << rrf->getName() << std::endl;
+        delete rrf;
     }
-    catch (std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-
-    // TEST 3 : PresidentialPardonForm (sign: 25, exec: 5)
-    std::cout << "\n=== TEST 3: PresidentialPardonForm ===" << std::endl;
-    try {
-        Bureaucrat highGrade(1, "HighGrade");
-        PresidentialPardonForm pardon("Arthur Dent");
-        
-        std::cout << highGrade;
-        std::cout << pardon;
-        
-        highGrade.signForm(pardon);
-        highGrade.executeForm(pardon);
-    }
-    catch (std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
+    catch (std::exception &e) 
+    {
+        std::cout << "Error: " << e.what() << std::endl;
     }
 
-    // TEST 4 : Execute without signing
-    std::cout << "\n=== TEST 4: Execute without signing ===" << std::endl;
-    try {
-        Bureaucrat boss(1, "Boss");
-        ShrubberyCreationForm unsigned_form("test");
+    // ---------------------------------------------------
+    // TEST 3: FAILURE (Form does not exist)
+    // ---------------------------------------------------
+    std::cout << "\n--- TEST 3: Intern tries to create a fake form ---" << std::endl;
+    try 
+    {
+        // This should throw 'FormDoesntExist'
+        rrf = someRandomIntern.makeForm("coffee request", "Boss");
         
-        std::cout << boss;
-        boss.executeForm(unsigned_form); // Should fail - not signed
+        // This line should NOT run
+        std::cout << "This should not print!" << std::endl; 
+        delete rrf;
     }
-    catch (std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
-    }
-
-    // TEST 5 : Grade too low to execute
-    std::cout << "\n=== TEST 5: Grade too low to execute ===" << std::endl;
-    try {
-        Bureaucrat lowBureaucrat(146, "LowBureaucrat");
-        Bureaucrat highBureaucrat(1, "HighBureaucrat");
-        ShrubberyCreationForm form("garden");
-        
-        highBureaucrat.signForm(form); // High grade signs it
-        lowBureaucrat.executeForm(form); // Low grade tries to execute - should fail
-    }
-    catch (std::exception& e) {
-        std::cout << "Exception: " << e.what() << std::endl;
+    catch (std::exception &e) 
+    {
+        std::cout << "Caught expected error: " << e.what() << std::endl;
     }
 
     return 0;
