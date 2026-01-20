@@ -4,7 +4,8 @@
 #include "C.hpp"
 #include "ft.hpp"
 #include <ctime>
-#include <cstdlib> 
+#include <cstdlib>
+
 Base* generate(void)
 {
 	Base *b;
