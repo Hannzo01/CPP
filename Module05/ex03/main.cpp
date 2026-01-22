@@ -7,6 +7,7 @@ int main()
 {
     Intern  someRandomIntern;
     AForm* rrf;
+    Bureaucrat boss(1, "kenza");
 
     // ---------------------------------------------------
     // TEST 1: SUCCESS (Robotomy Request)
@@ -16,7 +17,9 @@ int main()
     {
         // "robotomy request" matches your array in Intern.cpp
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
-        
+        boss.signForm(*rrf);
+        boss.executeForm(*rrf);
+        std::cout << "-------" << std::endl;
         // Prove it exists by printing it
         std::cout << "Success: Created " << rrf->getName() << std::endl;
         

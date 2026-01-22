@@ -5,7 +5,9 @@ int main()
 	int *p = &a;
 
 	uintptr_t i = reinterpret_cast<uintptr_t>(p);
-	std::cout << i + 10;
+	std::cout << i + 10 << "  *";
+	std::cout << p + 10;
+
 
 
 }
