@@ -7,7 +7,10 @@ int main()
 {
     Intern  someRandomIntern;
     AForm* rrf;
+<<<<<<< HEAD
     Bureaucrat boss(1, "kenza");
+=======
+>>>>>>> 203c00f3d20d3f960ceffb79d4c2912a65d7ae32
 
     // ---------------------------------------------------
     // TEST 1: SUCCESS (Robotomy Request)
@@ -17,9 +20,13 @@ int main()
     {
         // "robotomy request" matches your array in Intern.cpp
         rrf = someRandomIntern.makeForm("robotomy request", "Bender");
+<<<<<<< HEAD
         boss.signForm(*rrf);
         boss.executeForm(*rrf);
         std::cout << "-------" << std::endl;
+=======
+        
+>>>>>>> 203c00f3d20d3f960ceffb79d4c2912a65d7ae32
         // Prove it exists by printing it
         std::cout << "Success: Created " << rrf->getName() << std::endl;
         

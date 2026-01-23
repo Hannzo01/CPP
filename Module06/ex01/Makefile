@@ -1,4 +1,8 @@
+<<<<<<< HEAD
 NAME = convert
+=======
+NAME = Serialization
+>>>>>>> 203c00f3d20d3f960ceffb79d4c2912a65d7ae32
 CXX = c++
 CXXFLAGS = -Wall -Wextra -Werror -std=c++98
 SRC = main.cpp Serializer.cpp
@@ -20,4 +24,8 @@ fclean : clean
 
 re : fclean all
 
+<<<<<<< HEAD
 .PHONY : clean fclean all re
+=======
+.PHONY : clean fclean all re
+>>>>>>> 203c00f3d20d3f960ceffb79d4c2912a65d7ae32

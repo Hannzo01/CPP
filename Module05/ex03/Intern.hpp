@@ -2,7 +2,11 @@
 #define INTERN_HPP
 #include <iostream>
 #include <exception>
+<<<<<<< HEAD
 #include "AForm.hpp"
+=======
+#include <AForm.hpp>
+>>>>>>> 203c00f3d20d3f960ceffb79d4c2912a65d7ae32
 #include "RobotomyRequestForm.hpp"
 #include "PresidentialPardonForm.hpp"
 #include "ShrubberyCreationForm.hpp"
