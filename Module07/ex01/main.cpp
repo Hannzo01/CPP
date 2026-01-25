@@ -1,29 +1,38 @@
 #include <iostream>
 #include "iter.hpp"
 
-// 1. A function that modifies the value (works on int)
-void addOne(int &n) {
-    n++;
+
+void print(int value){
+    std::cout << value << " ";
 }
 
-// 2. A generic function that just reads the value
-template <typename Add>
-void printItem(Add &x) {
-    std::cout << x << " ";
+void addone(int value){
+    std::cout << value + 1 << " ";
 }
 
-int main() {
-    int array[] = {0, 1, 2, 3};
+void refadd(int& value){
+   value =  value + 1 ;
+}
 
-    std::cout << "Original: ";
-    ::iter(array, 4, printItem<int>); // Test 1: Instantiated template
+int main()
+{
+    int arr[] = {1,2,3,4,5};
+
+    iter(arr, 5, print);
+    std::cout << std::endl;
+    iter(arr, 5, addone);
+    std::cout << std::endl;
+    for (int i = 0; i < 5 ; i++)
+        std::cout << arr[i] << " ";
+    std::cout << std::endl;
+    iter(arr, 5, refadd);
     std::cout << std::endl;
 
-    ::iter(array, 4, addOne); // Test 2: Regular function pointer
-
-    std::cout << "Modified: ";
-    ::iter(array, 4, printItem<int>); // Verify changes
+    for (int i = 0; i < 5 ; i++)
+        std::cout << arr[i] << " ";
     std::cout << std::endl;
+    
 
-    return 0;
+
+
 }

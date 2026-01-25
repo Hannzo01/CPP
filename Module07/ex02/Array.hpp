@@ -17,15 +17,16 @@ class Array
 		Array(const Array& other);
 		Array& operator=(const Array& other);
 		~Array();
+		const T& operator[](unsigned int index)const;
 		T& operator[](unsigned int index);
-		int size()const;
+
+		unsigned int size()const;
 };
 
 template <typename T>
 Array<T>::~Array(){
 	delete[] _arr;
 }
-
 
 template <typename T>
 T& Array<T>::operator[](unsigned int index){
@@ -34,8 +35,16 @@ T& Array<T>::operator[](unsigned int index){
 	return _arr[index];
 }
 
+
 template <typename T>
-int Array<T>::size()const{
+const T& Array<T>::operator[](unsigned int index)const {
+	if (index >= _n)
+		throw std::exception();
+	return _arr[index];
+}
+
+template <typename T>
+unsigned int Array<T>::size()const{
 	return _n;
 }
 
