@@ -19,6 +19,14 @@ class  MutantStack : public std::stack<T>
         {
             return std::stack<T>::c.end();
         }
+        iterator rbegin()
+        {
+            return std::stack<T>::c.rbegin();
+        }
+        iterator rend()
+        {
+            return std::stack<T>::c.rend();
+        }
 };
 
 
