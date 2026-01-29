@@ -13,32 +13,14 @@ int main()
 
 	std::vector<int>::iterator it = easyfind(v, 2);
 	if (it == v.end())
-		std::cout << "maghtwsalxi";
+		std::cout << "not found!" << std::endl;
 	else
-		std::cout << *it << std::endl;
-	// try 
-	// {
-	// 	std::cout << easyfind(v, 2) << std::endl;
-	// }
-	// catch (int i)
-	// {
-	// 	std::cout << "No occurence is found" << std::endl;
-	// }
-	// try 
-	// {
-	// 	std::cout << easyfind(v, 5) << std::endl;
+		std::cout << "the value "<<*it << " is found!" << std::endl;
 
-	// }
-	// catch (int i)
-	// {
-	// 	std::cout << "No occurence is found" << std::endl;
-	// }
-	// try
-	// {
-	// 	std::cout << easyfind(v, 14) << std::endl;
-	// }
-	// catch (int i)
-	// {
-	// 	std::cout << "No occurence is found" << std::endl;
-	// }
+	it = easyfind(v, 65);
+	
+	if (it == v.end())
+		std::cout << "not found!" << std::endl;
+	else
+		std::cout << "the value "<<*it << " is found!" << std::endl;
 }

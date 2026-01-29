@@ -5,17 +5,10 @@
 #include <algorithm>
 #include <vector>
 
-
-
 template<typename T>
-typename T::iterator easyfind(T v, int value)
+typename T::iterator easyfind(T &v, int value)
 {
-	typename T::iterator it;
-	// std::vector<int>::iteator it;
-	it = std::find(v.begin(), v.end(), value);
-	// if (it == v.end())
-	// 	throw 1;
-	return it;
+	return (std::find(v.begin(), v.end(), value));
 }
 
 

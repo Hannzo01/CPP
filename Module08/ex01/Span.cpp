@@ -21,7 +21,7 @@ Span::~Span(){}
 unsigned int Span::longestSpan()
 {
 	if (v.size() < 2)
-		throw 1;
+		throw std::out_of_range("Not enough elements to find a span");
 	std::sort(v.begin(), v.end());
 	return (v.back() - v.front());
 }
@@ -29,7 +29,7 @@ unsigned int Span::longestSpan()
 unsigned int Span::shortestSpan()
 {
 	if (v.size() < 2)
-		throw 1;
+		throw std::out_of_range("Not enough elements to find a span");
 	std::sort(v.begin(), v.end());
 	unsigned int diff = std::numeric_limits<int>::max();
 
@@ -56,6 +56,6 @@ void Span::addNumber(std::vector<int>::iterator begin, std::vector<int>::iterato
 void Span::addNumber(int n)
 {
 	if (v.size() >= _capacity)
-		throw (1);
+		throw std::out_of_range("Span would exceed capacity");
 	v.push_back(n);
 }
