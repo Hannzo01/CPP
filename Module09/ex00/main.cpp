@@ -47,6 +47,15 @@ void valid_date(std::string line)
 	
 }
 
+
+void execute(std::string date, float value)
+{
+	std::map<std::string, float> map;
+
+	
+}
+
+
 void	split_line(std::string line)
 {
 	if (line == "date | value") return;
@@ -64,6 +73,7 @@ void	split_line(std::string line)
 	valid_date(data_line);
 	float final_val = get_float_value(value_line);
 
+	execute(data_line, final_val);
 }
 
 
